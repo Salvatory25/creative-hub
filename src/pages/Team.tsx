@@ -3,6 +3,9 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Linkedin, Mail, Github, Users, Lightbulb, Code2 } from 'lucide-react';
+import salvatoryProfile from '@/assets/salvatory-profile.jpg';
+import feisalProfile from '@/assets/feisal-profile.jpg';
+import ezekielProfile from '@/assets/ezekiel-profile.jpg';
 
 const Team = () => {
   const teamMembers = [
@@ -14,7 +17,8 @@ const Team = () => {
       skills: ["PHP", "JavaScript", "Python", "Laravel", "Flutter"],
       personality: ["Innovative", "Entrepreneurial", "Problem Solver"],
       icon: Code2,
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      image: salvatoryProfile
     },
     {
       name: "Feisal Ahmad Dengwa",
@@ -24,7 +28,8 @@ const Team = () => {
       skills: ["Business Strategy", "Market Analysis", "Project Management", "Web Development"],
       personality: ["Entrepreneurial", "Strategic", "Innovative"],
       icon: Users,
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
+      image: feisalProfile
     },
     {
       name: "Ezekiel Leman",
@@ -34,7 +39,8 @@ const Team = () => {
       skills: ["Innovation", "Technical Leadership", "System Design", "Problem Solving"],
       personality: ["Innovative", "Technical Leader", "Collaborative"],
       icon: Lightbulb,
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      image: ezekielProfile
     }
   ];
 
@@ -66,8 +72,15 @@ const Team = () => {
                 <div className="grid lg:grid-cols-3 gap-0">
                   {/* Profile Section */}
                   <CardHeader className="lg:col-span-1 bg-gradient-to-br from-muted/30 to-muted/10 flex flex-col items-center text-center space-y-4 p-8">
-                    <div className={`w-20 h-20 bg-gradient-to-r ${member.color} rounded-full flex items-center justify-center mb-4`}>
-                      <member.icon className="w-10 h-10 text-white" />
+                    <div className="relative">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                      />
+                      <div className={`absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r ${member.color} rounded-full flex items-center justify-center border-4 border-white`}>
+                        <member.icon className="w-6 h-6 text-white" />
+                      </div>
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-xl font-poppins font-bold text-foreground">
